@@ -1,4 +1,4 @@
-{config, sops-nix, ... }: 
+{inputs, config, sops-nix, ... }: 
 
 {
         imports = [inputs.sops-nix.nixosModules.sops];
