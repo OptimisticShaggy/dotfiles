@@ -1,0 +1,16 @@
+# This example uses YAML anchors which allows reuse of multiple keys 
+# without having to repeat yourself.
+# Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
+# for a more complex example.
+keys:
+  - &user_frame A2538071A7D35B4C1450BAE82C51A2F2802F3085
+
+  - &host_estushlpse age1svj6z2fjnqf72d0dtfaxp39gwty5da2mwhduh5g7l9cmp8xv7qlqezzeq5
+
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - pgp:
+        - *user_frame
+      - age:
+        - *host_estushlpse
