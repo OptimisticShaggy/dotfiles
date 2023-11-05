@@ -1,10 +1,10 @@
 {config, sops-nix, ... }: 
 
 {
-        imports = [];
+        imports = [sops-nix.nixosModules.sops];
 
         sops = {
-                defaultSopsFile = ../.sops.yaml;
+                defaultSopsFile = ./ts_estushlpse.yaml;
                 age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
         };
 
