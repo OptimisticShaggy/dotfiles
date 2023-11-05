@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, sops-nix, ... }:
 
 {
 
-  imports = [<sops-nix/modules/sops>];
+  imports = [sops-nix.nixosModules.sops];
 
   containers.nginx = {
       bindMounts = 
