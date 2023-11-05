@@ -90,7 +90,7 @@
             #vscode-server.nixosModules.default
             self.nixosModules.virtualization
             self.nixosModules.x86_64-linux
-            #self.nixosModules.shared
+            self.nixosModules.shared
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

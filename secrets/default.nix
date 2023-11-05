@@ -1,7 +1,7 @@
 {config, sops-nix, ... }: 
 
 {
-        imports = [sops-nix.nixosModules.sops];
+        imports = [inputs.sops-nix.nixosModules.sops];
 
         sops = {
                 defaultSopsFile = ./ts_estushlpse.yaml;
