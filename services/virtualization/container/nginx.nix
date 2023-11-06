@@ -13,6 +13,18 @@
             mountPoint = "/var/www";
             isReadOnly = false;
           };
+          "crt" =
+          {
+            hostPath = "/run/secrets/crt";
+            mountPoint = "/var/www/crt";
+            isReadOnly = true;
+          };
+          "key" =
+          {
+            hostPath = "/run/secrets/key";
+            mountPoint = "/var/www/key";
+            isReadOnly = true;
+          };
         };
       config = { config, pkgs, ... }:
           {
@@ -30,8 +42,8 @@
                     default = true;
                     forceSSL = true;
                     root = "/var/www";
-                    sslCertificate = config.sops.secrets."hlpse_crt".path;
-                    sslCertificateKey = config.sops.secrets."hlpse_key".path;
+                    sslCertificate = "/var/www/crt";
+                    sslCertificateKey = "/var/www/key";
                     locations."/".return = "200 \"Hello from Nix!\"";
                 };
             };
