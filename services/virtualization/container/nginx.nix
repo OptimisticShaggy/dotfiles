@@ -37,7 +37,7 @@
 
                 sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
                 
-                virtualHosts.default = 
+                virtualHosts."estushlpse.narwhal-grue.ts.net" = 
                 {
                     default = true;
                     forceSSL = true;
