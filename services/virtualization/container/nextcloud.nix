@@ -3,9 +3,6 @@
 {
 
   containers.ncc = {
-      privateNetwork = true;
-      
-      hostAddress = "192.168.0.249";
       
       bindMounts = 
         {
@@ -22,7 +19,8 @@
           nextcloud =
               {
                 enable = true;
-                hostName = "ncc.narwhal-grue.ts.net";
+                #hostName = "ncc.narwhal-grue.ts.net";
+                hostName = "localhost";
                 database.createLocally = true;
                 datadir = "/var/lib/nextcloud";
                 package = pkgs.nextcloud27;
@@ -33,7 +31,7 @@
                 appstoreEnable = true;
                 maxUploadSize = "30G";
                 config = {
-                  overwriteProtocol = "https";
+                  #overwriteProtocol = "https";
                   dbtype = "pgsql";
                   adminuser = "admin";
                   adminpassFile = "/var/lib/nextcloud/secret/pass";
