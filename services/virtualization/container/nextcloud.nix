@@ -19,7 +19,6 @@
               {
                 enable = true;
                 hostName = "ncc.narwhal-grue.ts.net";
-                nginx.enable = true;
                 database.createLocally = true;
                 datadir = "/var/lib/nextcloud";
                 package = pkgs.nextcloud27;
