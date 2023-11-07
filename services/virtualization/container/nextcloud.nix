@@ -33,7 +33,6 @@
                   dbtype = "pgsql";
                   adminuser = "admin";
                   adminpassFile = "/var/lib/nextcloud/secret/pass";
-                  #adminpassFile = "${pkgs.writeText "test123"}";
                 };
               };
 
@@ -61,7 +60,7 @@
             };
                 
                 system.stateVersion = "23.05";
-                
+                /*
                 systemd.network = {
                   enable = true;
                   networks."10-wan" = {
@@ -72,16 +71,14 @@
                       };
                   };
                 };
-                
+                */
                 networking = {
-                  nameservers = [ "127.0.0.1" ];
                   firewall = 
                     {
                       enable = true;
                       allowedTCPPorts = [ 80 443 ];
                     };
                 };
-                environment.etc."resolv.conf".text = "nameserver 8.8.8.8";
     };
   };
 }
