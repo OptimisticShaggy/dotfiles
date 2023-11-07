@@ -9,9 +9,11 @@
         };
 
         sops.secrets.crt = {
+                format = "yaml";
                 mode = "0444";
         };
         sops.secrets.key = {
+                format = "yaml";
                 mode = "0444";
         };
 }
