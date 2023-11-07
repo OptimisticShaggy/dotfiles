@@ -67,7 +67,7 @@
               };
 
             };
-                
+                /*
                 system.stateVersion = "23.05";
                 systemd.network = {
                   enable = true;
@@ -79,6 +79,8 @@
                       };
                   };
                 };
+
+                */
                 networking = {
                   firewall = 
                     {
