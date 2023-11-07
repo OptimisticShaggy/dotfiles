@@ -69,7 +69,7 @@
                     networkConfig = {
                       DHCP = "ipv4";
                       IPv6AcceptRA = true;
-                      }
+                      };
                   };
                 };
                 
