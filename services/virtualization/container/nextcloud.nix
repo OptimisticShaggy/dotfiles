@@ -56,6 +56,8 @@
                 enable = true;
                 permitCertUid = "OptimisticShaggy@github";
               };
+              dnsmasq.resolveLocalQueries = false;
+
             };
                 
                 system.stateVersion = "23.05";
