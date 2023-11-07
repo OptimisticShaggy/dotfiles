@@ -56,10 +56,7 @@
                     sslCertificateKey = "/etc/ssl/ncc.narwhal-grue.ts.net.key";
                 };
               };
-              tailscale = {
-                enable = true;
-                permitCertUid = "OptimisticShaggy@github";
-              };
+              
 
             };
                 /*
@@ -74,6 +71,11 @@
                       };
                   };
                 };
+
+                tailscale = {
+                enable = true;
+                permitCertUid = "OptimisticShaggy@github";
+              };
 
                 */
                 networking = {
