@@ -7,7 +7,6 @@
               {
                 enable = true;
                 hostName = "estushlpse.narwhal-grue.ts.net";
-                #hostName = "localhost";
                 database.createLocally = true;
                 datadir = "/mnt/runner/nextcloud";
                 package = pkgs.nextcloud27;
