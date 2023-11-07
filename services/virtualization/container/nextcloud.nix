@@ -14,7 +14,8 @@
         };
       config = { config, pkgs, ... }:
       {
-        services.nextcloud =
+        services = {
+          nextcloud =
               {
                 enable = true;
                 hostName = "ncc.narwhal-grue.ts.net";
@@ -37,7 +38,6 @@
                 };
               };
 
-              services = {
               nginx = {
                 recommendedGzipSettings = true;
                 recommendedOptimisation = true;
