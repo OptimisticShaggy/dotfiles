@@ -17,11 +17,11 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
-    #../../services/virtualization/container/nextcloud.nix
-
     ../../services/displays/workstation/kde.nix
     ../../services/datarecovery.nix
-    ./containers.nix
+    
+    ./nextcloud.nix
+
   ];
   
   
