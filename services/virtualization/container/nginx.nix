@@ -13,6 +13,8 @@
             mountPoint = "/var/www";
             isReadOnly = false;
           };
+          /*
+          Containers generate their own Hostnames.
           "crt" =
           {
             hostPath = "/run/secrets/crt";
@@ -25,10 +27,12 @@
             mountPoint = "/var/www/key";
             isReadOnly = true;
           };
+          */
         };
       config = { config, pkgs, ... }:
           {
-            services.nginx = {
+            services = {
+              nginx = {
                 enable = true;
                 recommendedGzipSettings = true;
                 recommendedOptimisation = true;
@@ -37,15 +41,20 @@
 
                 sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
                 
-                virtualHosts."estushlpse.narwhal-grue.ts.net" = 
+                virtualHosts."nginx.narwhal-grue.ts.net" = 
                 {
                     default = true;
                     forceSSL = true;
                     root = "/var/www";
-                    sslCertificate = "/var/www/crt";
-                    sslCertificateKey = "/var/www/key";
+                    sslCertificate = "/etc/ssl/crt";
+                    sslCertificateKey = "/etc/ssl/key";
                     locations."/".return = "200 \"Hello from Nix!\"";
                 };
+              };
+              tailscale = {
+                enable = true;
+                permitCertUid = "OptimisticShaggy@github";
+              };
             };
 
             system.stateVersion = "23.05";
@@ -53,7 +62,7 @@
                   firewall = 
                     {
                       enable = true;
-                      allowedTCPPorts = [ 80 81 443 ];
+                      allowedTCPPorts = [ 80 443 ];
                     };
                 };
           };

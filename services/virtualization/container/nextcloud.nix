@@ -17,7 +17,7 @@
         services.nextcloud =
               {
                 enable = true;
-                hostName = "estushlpse.narwhal-grue.ts.net";
+                hostName = "ncc.narwhal-grue.ts.net";
                 nginx.enable = true;
                 database.createLocally = true;
                 datadir = "/var/lib/nextcloud";
@@ -36,6 +36,30 @@
                   #adminpassFile = "${pkgs.writeText "test123"}";
                 };
               };
+
+              services = {
+              nginx = {
+                enable = true;
+                recommendedGzipSettings = true;
+                recommendedOptimisation = true;
+                recommendedProxySettings = true;
+                recommendedTlsSettings = true;
+
+                sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
+                
+                virtualHosts."ncc.narwhal-grue.ts.net" = 
+                {
+                    forceSSL = true;
+                    root = "/var/www";
+                    sslCertificate = "/etc/ssl/ncc.narwhal-grue.ts.net.crt";
+                    sslCertificateKey = "/etc/ssl/ncc.narwhal-grue.ts.net.key";
+                };
+              };
+              tailscale = {
+                enable = true;
+                permitCertUid = "OptimisticShaggy@github";
+              };
+            };
                 
                 system.stateVersion = "23.05";
                 
