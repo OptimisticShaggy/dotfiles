@@ -4,11 +4,8 @@
 
   containers.ncc = {
       privateNetwork = true;
-      localAddress = "10.231.136.2";
-      localAddress6 = "fc00::2";
       
       hostAddress = "192.168.0.249";
-      hostAddress6 = "2601:405:4100:74ed:11d8:aabd:956a:1378";
       
       bindMounts = 
         {
