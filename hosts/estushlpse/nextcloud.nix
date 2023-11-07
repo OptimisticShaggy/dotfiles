@@ -21,7 +21,7 @@
                   overwriteProtocol = "https";
                   dbtype = "pgsql";
                   adminuser = "admin";
-                  adminpassFile = "/mnt/runner/nextcloud/secret/pass";
+                  adminpassFile = "/tmp/pass";
                 };
               };
 
@@ -36,8 +36,8 @@
                 virtualHosts."estushlpse.narwhal-grue.ts.net" = 
                 {
                     forceSSL = true;
-                    sslCertificate = "/etc/ssl/estushlpse.narwhal-grue.ts.net.crt";
-                    sslCertificateKey = "/etc/ssl/estushlpse.narwhal-grue.ts.net.key";
+                    sslCertificate = "/mnt/runner/nginx/estushlpse.narwhal-grue.ts.net.crt";
+                    sslCertificateKey = "/mnt/runner/nginx/estushlpse.narwhal-grue.ts.net.key";
                 };
               };
               
