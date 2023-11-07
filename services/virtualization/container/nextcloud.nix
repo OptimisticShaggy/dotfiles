@@ -81,7 +81,7 @@
                       allowedTCPPorts = [ 80 443 ];
                     };
                 };
+                environment.etc."resolv.conf".text = "nameserver 8.8.8.8";
     };
-    environment.etc."resolv.conf".text = "nameserver 8.8.8.8";
   };
 }
