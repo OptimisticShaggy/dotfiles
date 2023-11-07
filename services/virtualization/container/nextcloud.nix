@@ -50,7 +50,6 @@
                 virtualHosts."ncc.narwhal-grue.ts.net" = 
                 {
                     forceSSL = true;
-                    root = "/var/www";
                     sslCertificate = "/etc/ssl/ncc.narwhal-grue.ts.net.crt";
                     sslCertificateKey = "/etc/ssl/ncc.narwhal-grue.ts.net.key";
                 };
