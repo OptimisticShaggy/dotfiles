@@ -3,6 +3,13 @@
 {
 
   containers.ncc = {
+      privateNetwork = true;
+      localAddress = "10.231.136.2";
+      localAddress6 = "fc00::2";
+      
+      hostAddress = "192.168.0.249";
+      hostAddress6 = "2601:405:4100:74ed:11d8:aabd:956a:1378";
+      
       bindMounts = 
         {
           "nextcloud" =
@@ -22,7 +29,7 @@
                 database.createLocally = true;
                 datadir = "/var/lib/nextcloud";
                 package = pkgs.nextcloud27;
-                https = true;
+                #https = true;
                 configureRedis = true;
                 autoUpdateApps.enable = true;
                 autoUpdateApps.startAt = "01:00:00";
@@ -37,6 +44,7 @@
               };
 
               nginx = {
+                /*
                 recommendedGzipSettings = true;
                 recommendedOptimisation = true;
                 recommendedProxySettings = true;
@@ -44,9 +52,11 @@
 
                 sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
                 
+                */
+
                 virtualHosts."ncc.narwhal-grue.ts.net" = 
                 {
-                    forceSSL = true;
+                    #forceSSL = true;
                     sslCertificate = "/etc/ssl/ncc.narwhal-grue.ts.net.crt";
                     sslCertificateKey = "/etc/ssl/ncc.narwhal-grue.ts.net.key";
                 };
@@ -55,12 +65,10 @@
                 enable = true;
                 permitCertUid = "OptimisticShaggy@github";
               };
-              dnsmasq.resolveLocalQueries = false;
 
             };
                 
                 system.stateVersion = "23.05";
-                /*
                 systemd.network = {
                   enable = true;
                   networks."10-wan" = {
@@ -71,7 +79,6 @@
                       };
                   };
                 };
-                */
                 networking = {
                   firewall = 
                     {

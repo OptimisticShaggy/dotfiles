@@ -14,7 +14,14 @@
       firewall = {
         checkReversePath = "loose";
         enable = true;
-        allowedTCPPorts = [ 80 81 443 ];
+        allowedTCPPorts = [ 80 443 ];
+      };
+      nat = {
+        enable = true;
+        internalInterfaces = ["vb-+"];
+        externalInterface = "enp3s0";
+        # Lazy IPv6 connectivity for the container
+        enableIPv6 = true;
       };
     };
 
