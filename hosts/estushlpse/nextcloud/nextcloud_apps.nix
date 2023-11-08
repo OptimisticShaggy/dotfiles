@@ -2,10 +2,12 @@
 
 {
 
-  services = {
-    nextcloud =
+  services.nextcloud =
       {
+        extraAppsEnable = true;
         extraApps = with config.services.nextcloud.packages.apps; {
+          inherit deck 
+          /*
           inherit deck
           #Official Apps
           
@@ -175,7 +177,6 @@
           welcome
           
           */
-        };
       };
   };
 }
