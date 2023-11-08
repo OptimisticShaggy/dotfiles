@@ -71,8 +71,8 @@
           #Nice to Have!
           forms
           news
-          maps
-          announcementcenter;
+          maps;
+          #announcementcenter;
         };
   };
 }
