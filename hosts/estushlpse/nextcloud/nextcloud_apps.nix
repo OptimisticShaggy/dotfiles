@@ -7,15 +7,17 @@
         appstoreEnable = true;
         extraAppsEnable = true;
         extraApps = with config.services.nextcloud.package.packages.apps; {
-          inherit deck
+          inherit deck spreed Talk external;
+
+          /*
           #Official Apps
           
 
           limit_login_to_ip
           files_accesscontrol
           files_automatedtagging
-          spreed #Talk
-          external
+           #Talk
+          
           groupfolders
 
           #Must Haves!
@@ -71,8 +73,9 @@
           #Nice to Have!
           forms
           news
-          maps;
-          #announcementcenter;
+          maps
+          #announcementcenter
+          */
         };
   };
 }
