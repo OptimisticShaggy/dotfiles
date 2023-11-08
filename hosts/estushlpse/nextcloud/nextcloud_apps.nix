@@ -7,11 +7,13 @@
         appstoreEnable = true;
         extraAppsEnable = true;
         extraApps = with config.services.nextcloud.package.packages.apps; {
-          inherit deck spreed external;
+          inherit deck spreed;
 
           /*
           #Official Apps
           
+external
+
 
           limit_login_to_ip
           files_accesscontrol
