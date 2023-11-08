@@ -7,7 +7,7 @@
         appstoreEnable = true;
         extraAppsEnable = true;
         extraApps = with config.services.nextcloud.package.packages.apps; {
-          inherit deck spreed;
+          inherit deck spreed groupfolders;
 
           /*
           #Official Apps
@@ -20,7 +20,7 @@ external
           files_automatedtagging
            #Talk
           
-          groupfolders
+          
 
           #Must Haves!
           end_to_end_encryption
