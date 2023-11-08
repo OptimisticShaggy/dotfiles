@@ -7,7 +7,7 @@
         appstoreEnable = true;
         extraAppsEnable = true;
         extraApps = with config.services.nextcloud.package.packages.apps; {
-          inherit deck spreed Talk external;
+          inherit deck spreed external;
 
           /*
           #Official Apps
