@@ -4,8 +4,9 @@
 
   services.nextcloud =
       {
+        appstoreEnable = true;
         extraAppsEnable = true;
-        extraApps = with config.services.nextcloud.packages.apps; {
+        extraApps = with config.services.nextcloud.package.packages.apps; {
           inherit deck 
           /*
           inherit deck
@@ -69,27 +70,11 @@
           files_readmemd
           files_notify_redis
           files_snapshots
-
-
-
-          
-
           #Nice to Have!
           forms
           news
           maps
           announcementcenter
-          
-
-
-
-
-
-
-           
-          
-          /*
-          
           
           audioplayer
           assistant
@@ -175,7 +160,6 @@
           preferred_providers
           phonetrack
           welcome
-          
           */
       };
   };
