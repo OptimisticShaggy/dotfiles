@@ -11,7 +11,6 @@
                 hostName = "estushlpse.narwhal-grue.ts.net";
                 database.createLocally = true;
                 datadir = "/mnt/runner/nextcloud";
-                defaultPhoneRegion = "US";
                 package = pkgs.nextcloud27;
                 https = true;
                 configureRedis = true;
@@ -21,6 +20,7 @@
                 maxUploadSize = "30G";
                 config = {
                   overwriteProtocol = "https";
+                  defaultPhoneRegion = "US";
                   dbtype = "pgsql";
                   adminuser = "admin";
                   adminpassFile = "/tmp/pass";
