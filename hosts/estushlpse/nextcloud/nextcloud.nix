@@ -11,7 +11,7 @@
                 hostName = "estushlpse.narwhal-grue.ts.net";
                 database.createLocally = true;
                 datadir = "/mnt/runner/nextcloud";
-                defaultPhoneRegion = "United States";
+                defaultPhoneRegion = "US";
                 package = pkgs.nextcloud27;
                 https = true;
                 configureRedis = true;
