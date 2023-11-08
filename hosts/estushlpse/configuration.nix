@@ -20,8 +20,7 @@
     ../../services/displays/workstation/kde.nix
     ../../services/datarecovery.nix
     
-    ./nextcloud.nix
-
+    ./nextcloud/nextcloud.nix
   ];
   
   

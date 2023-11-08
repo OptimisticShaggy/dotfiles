@@ -2,6 +2,8 @@
 
 {
 
+  imports = [./nextcloud_apps.nix];
+
   services = {
     nextcloud =
               {
