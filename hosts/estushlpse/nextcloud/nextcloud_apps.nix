@@ -29,7 +29,7 @@
           collectives
           cookbook
           apporder
-          analytics
+          #analytics
           appointments
           tables
           unsplash
