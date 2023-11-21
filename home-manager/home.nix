@@ -58,6 +58,12 @@
 
     programs = {
       home-manager.enable = true;
+      bash.shellAliases = {
+        l = "ls -alh";
+        ll = "ls -l";
+        ls = "ls --color=tty";
+        occ = "sudo -i nextcloud-occ";
+      };
       ssh.enable = true;
       git.enable = true;
     };
