@@ -92,7 +92,7 @@
       "/mnt/dw" = {
         device = "/dev/disk/by-uuid/65577975-3b04-4fcc-86ee-bce0b9cc44af";
         fsType = "ext4";
-      }
+      };
     };
 
   # Set your system kind (needed for flakes)
