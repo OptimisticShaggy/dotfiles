@@ -16,6 +16,7 @@
         systemPackages = [
           pkgs.spice-gtk
           pkgs.qemu
+          pkgs.docker
         ];
       };
       
