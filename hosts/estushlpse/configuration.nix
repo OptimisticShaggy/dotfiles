@@ -17,6 +17,9 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    ../../services/virtualization/default.nix
+    ../../services/virtualization/waydroid.nix
+
     ../../services/displays/workstation/kde.nix
     ../../services/datarecovery.nix
     
