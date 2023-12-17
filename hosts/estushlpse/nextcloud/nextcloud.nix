@@ -48,5 +48,9 @@
                     sslCertificateKey = "/mnt/runner/nginx/estushlpse.narwhal-grue.ts.net.key";
                   };
                 };
-            };
+            postgresql.authentication = pkgs.lib.mkOverride 10 ''
+                  #type database DBuser auth-method
+                  local all      all    all
+                '';
+  };
 }
