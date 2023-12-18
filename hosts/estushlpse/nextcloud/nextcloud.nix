@@ -28,8 +28,14 @@
                     overwriteProtocol = "https";
                     defaultPhoneRegion = "US";
                     dbtype = "pgsql";
+                    
+                    dbuser = "nextcloud";
+                    dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
+                    
+                    
                     adminuser = "admin";
-                    adminpassFile = "/tmp/pass";
+                    adminpassFile = "/mnt/runner/nextcloud/secret/adminuserpass.txt";
+
                   };
                 };
 
@@ -50,7 +56,7 @@
                 };
             postgresql.authentication = pkgs.lib.mkOverride 10 ''
                   #type database DBuser auth-method
-                  local all      all    all
+                  local all      all    trust
                 '';
   };
 }
