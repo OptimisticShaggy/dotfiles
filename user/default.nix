@@ -4,6 +4,8 @@
     
   imports = [
       ./frame.nix
+      ./rose.nix
+      ./fishy.nix
  ];
 
   config = {

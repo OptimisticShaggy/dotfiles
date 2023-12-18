@@ -3,8 +3,7 @@
 
 {
 
-  imports = [ 
-    ../../arch/x64.nix 
+  imports = [
     ../../networking/default.nix
     ../../networking/tailscale.nix
     ../../networking/hidden_wifi_net.nix
@@ -18,8 +17,6 @@
         efi.canTouchEfiVariables = true;
       };
       
-      kernelModules = [ "kvm-amd" ];
-      
       initrd = {
         availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
         network.ssh.enable = true;
@@ -28,22 +25,21 @@
     };
     fileSystems = {
       "/" = {
-        device = "/dev/disk/by-label/nixos";
+        device = "/dev/disk/by-label/root";
+        fsType = "ext4";
+      };
+      "home" = {
+        device = "/dev/disk/by-label/home";
         fsType = "ext4";
       };
       "/boot" = {
         device = "/dev/disk/by-label/boot";
-        fsType = "vfat";
+        fsType = "fat32";
       };
     };
     networking = {
       hostName = "portphpe";
     };
-    swapDevices = [
-      {
-        device = "/dev/disk/by-label/swap";
-      }
-    ];
     
     hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
       
