@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, pkgs, nixpkgs, ... }:
 {
   imports = [
-    ../../../vpsadminos.nix
+    ./vpsadminos.nix
 
     ../../services/virtualization/default.nix
     ../../services/virtualization/waydroid.nix
