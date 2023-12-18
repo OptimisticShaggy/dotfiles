@@ -106,13 +106,13 @@
           ];
         };
 
-        czpfishymauler = nixpkgs.lib.nixosSystem {
+        czhlfishymauler = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           
           modules = [
             # > Our main nixos configuration file <
             ./hosts/default.nix
-            ./hosts/czpfishymauler/configuration.nix
+            ./hosts/czhlfishymauler/configuration.nix
             #vscode-server.nixosModules.default
             self.nixosModules.virtualization
             self.nixosModules.x86_64-linux
