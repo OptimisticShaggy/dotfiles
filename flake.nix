@@ -105,6 +105,30 @@
             }
           ];
         };
+
+        czpfishymauler = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          
+          modules = [
+            # > Our main nixos configuration file <
+            ./hosts/default.nix
+            ./hosts/czpfishymauler/configuration.nix
+            #vscode-server.nixosModules.default
+            self.nixosModules.virtualization
+            self.nixosModules.x86_64-linux
+            #self.nixosModules.shared
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.frame = {
+                imports = [
+                  ./home-manager/home.nix
+                  ./home-manager/desktop.nix
+                ];
+              };
+            }
+          ];
+        };
       
          portphpe = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };

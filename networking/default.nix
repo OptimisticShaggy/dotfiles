@@ -10,8 +10,5 @@
         checkReversePath = "loose";
         enable = true;
       };
-      networkmanager = {
-        enable = true;
-      };
   };
 }
