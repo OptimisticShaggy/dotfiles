@@ -32,7 +32,7 @@
         device = "/dev/disk/by-label/home";
         fsType = "ext4";
       };
-      "/boot" = {
+      "boot" = {
         device = "/dev/disk/by-label/boot";
         fsType = "fat32";
       };
