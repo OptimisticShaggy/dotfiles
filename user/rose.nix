@@ -20,7 +20,7 @@
           packages = [ 
             pkgs.firefox 
             pkgs.thunderbird 
-          ]
+          ];
         };
     };
 }
