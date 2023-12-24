@@ -17,6 +17,10 @@
           ];
           home = "/home/rose";
           isNormalUser = true;
+          packages = [ 
+            pkgs.firefox 
+            pkgs.thunderbird 
+          ]
         };
     };
 }
