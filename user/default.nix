@@ -16,6 +16,11 @@
         pkgs.jmtpfs
         ];
     };
+
+    users.users.root = {
+      isNormalUser = false;
+      extraGroups = [ "wheel" ];
+    };
     # users.mutableUsers = false; error:
       # Failed assertions:
        #- Neither the root account nor any wheel user has a password or SSH authorized key.

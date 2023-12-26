@@ -152,6 +152,29 @@
           ];
         };
 
+        estusp3dprint = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          
+          modules = [
+            # > Our main nixos configuration file <
+            ./hosts/default.nix
+            ./hosts/estusp3dprint/configuration.nix
+            self.nixosModules.aarch64-linux
+            self.nixosModules.shared
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.frame = {
+                imports = [
+                  ./home-manager/aarch/home.nix
+                  ./home-manager/aarch/desktop.nix
+                ];
+              };
+            }
+          ];
+        };
+      
+
         estuspdash = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           

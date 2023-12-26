@@ -16,21 +16,12 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-
-    ../../services/virtualization/default.nix
-    ../../services/virtualization/waydroid.nix
-
-    ../../services/displays/workstation/kde.nix
-    ../../services/datarecovery.nix
-    
-    ./nextcloud/nextcloud.nix
-    ./containers.nix
+    #../../services/displays/workstation/i3+xfce.nix
   ];
-  
   
 
   config = {
-    system.stateVersion = "23.05";
+    system.stateVersion = "23.11";
     
     nixpkgs = {
     # Configure your nixpkgs instance
