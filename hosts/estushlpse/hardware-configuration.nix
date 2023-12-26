@@ -28,6 +28,10 @@
     };
 
 
+    /*
+    warning: The combination of `systemd.network.enable = true`, `networking.useDHCP = true` and `networking.useNetworkd = false` can cause both networkd and dhcpcd to manage the same interfaces. This can lead to loss of networking. It is recommended you choose only one of networkd (by also enabling `networking.useNetworkd`) or scripting (by disabling `systemd.network.enable`)
+    */
+
     systemd.network = {
       enable = true;
       wait-online.enable = false;
