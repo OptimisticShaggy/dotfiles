@@ -11,7 +11,7 @@
     
     networking = {
       hostName = "estushlpse";
-      useDHCP = false;
+      useNetworkd = false;
       firewall = {
         checkReversePath = "loose";
         enable = true;
