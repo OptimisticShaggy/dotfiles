@@ -52,6 +52,7 @@
         pkgs.p7zip
         pkgs.nixos-generators
         pkgs.glances
+        pkgs.hugo
        ];
       stateVersion = "23.11";
     };
