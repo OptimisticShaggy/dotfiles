@@ -160,7 +160,7 @@
             ./hosts/default.nix
             ./hosts/estusp3dprint/configuration.nix
             self.nixosModules.aarch64-linux
-            self.nixosModules.shared
+            #self.nixosModules.shared
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -183,7 +183,7 @@
             ./hosts/default.nix
             ./hosts/estuspdash/configuration.nix
             self.nixosModules.aarch64-linux
-            self.nixosModules.shared
+            #self.nixosModules.shared
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
