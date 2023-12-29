@@ -34,9 +34,10 @@
     
     nixpkgs = {
     # Configure your nixpkgs instance
-      overlays = [
+      /*overlays = [
         outputs.overlays.modifications
       ];
+      */
       config = {
         # Disable if you don't want unfree packages
         allowUnfree = true;
