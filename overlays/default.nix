@@ -5,7 +5,7 @@
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: {
+  modifications = final: super: {
      makeModulesClosure = x:
         super.makeModulesClosure (x // { allowMissing = true; });
     # example = prev.example.overrideAttrs (oldAttrs: rec {
