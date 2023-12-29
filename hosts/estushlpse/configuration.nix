@@ -55,6 +55,10 @@
         # Deduplicate and optimize nix store
         auto-optimise-store = true;
       };
+
+      overlays = [
+        outputs.overlays.modifications
+      ];
     };
 
     time = {
