@@ -11,7 +11,19 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_rpi3;
+
+    boot = {
+      kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+      initrd = {
+        availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+        network.ssh.enable = true;
+      };
+      loader = {
+        grub.enable = false;
+        generic-extlinux-compatible.enable = true;
+      };
+    };
+    kernelPackages = pkgs.linuxPackages_rpi4;
     loader.grub.enable = false;
     loader.generic-extlinux-compatible.enable = true;
     consoleLogLevel = lib.mkDefault 7;
