@@ -34,6 +34,9 @@
     
     nixpkgs = {
     # Configure your nixpkgs instance
+      overlays = [
+        outputs.overlays.modifications
+      ];
       config = {
         # Disable if you don't want unfree packages
         allowUnfree = true;
@@ -55,10 +58,6 @@
         # Deduplicate and optimize nix store
         auto-optimise-store = true;
       };
-
-      overlays = [
-        outputs.overlays.modifications
-      ];
     };
 
     time = {
