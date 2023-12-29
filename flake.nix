@@ -43,8 +43,6 @@
       ];
     in
     rec {
-      
-      overlays = import ./overlays {inherit inputs;};
 
       # NixOS Modules
       nixosModules = {
@@ -64,13 +62,21 @@
           nixpkgs.hostPlatform = "x86_64-linux";
         };
 
-        /*
-        shared = {config, ... }: {
-          imports = [ 
-            ./secrets/default.nix
-          ];
+        
+        builders = {config, ... }: {
+          overlays = import ./overlays {inherit inputs;};
         };
+        /*
+          nixpkgs.overlays = [
+              (final: super: {
+                makeModulesClosure = x:
+                  super.makeModulesClosure (x // { allowMissing = true; });
+              })
+            ];
+          })
+        
         */
+        
 
         virtualization = {config, ... }: {
             imports = [
@@ -94,7 +100,7 @@
             #vscode-server.nixosModules.default
             self.nixosModules.virtualization
             self.nixosModules.x86_64-linux
-            #self.nixosModules.shared
+            self.nixosModules.builders
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

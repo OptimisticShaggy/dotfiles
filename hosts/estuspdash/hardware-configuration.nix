@@ -13,8 +13,7 @@
     boot = {
       kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
       initrd = {
-        availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
-        network.ssh.enable = true;
+        availableKernelModules = [ "usbhid" "usb_storage" ];
       };
       loader = {
         grub.enable = false;
@@ -22,21 +21,18 @@
       };
     };
 
-    hardware.enableRedistributableFirmware = true;
+    # hardware.enableRedistributableFirmware = true;
+    powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
     fileSystems = {
       "/" = {
         device = "/dev/disk/by-label/NIXOS_SD";
         fsType = "ext4";
-        options = [ "noatime" ];
       };
     };
 
     networking = {
       hostName = "estuspdash";
     };
-      
-    # Set your system kind (needed for flakes)
-    nixpkgs.hostPlatform = "aarch64-linux";
   };
 }
