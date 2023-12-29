@@ -43,7 +43,9 @@
       ];
     in
     rec {
-    
+      
+      overlays = import ./overlays {inherit inputs;};
+
       # NixOS Modules
       nixosModules = {
         
