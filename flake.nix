@@ -45,8 +45,9 @@
     rec {
     
       # NixOS Modules
-
       nixosModules = {
+        
+        
         aarch64-linux = {config, ... }: {
           imports = [
             nixos-generators.nixosModules.all-formats
@@ -84,7 +85,6 @@
         
         estushlpse = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          
           modules = [
             # > Our main nixos configuration file <
             ./hosts/default.nix
