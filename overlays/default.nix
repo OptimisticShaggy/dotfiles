@@ -5,13 +5,13 @@
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
-  modifications = ( final: super: {
+  modifications = final: prev: {
      makeModulesClosure = x:
         super.makeModulesClosure (x // { allowMissing = true; });
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
-  });
+  };
 
   /*
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

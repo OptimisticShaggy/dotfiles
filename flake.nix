@@ -31,7 +31,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager,  nixos-generators, sops-nix, ...}@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager,  nixos-generators, sops-nix, ...}@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -41,6 +41,13 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+
+      builder = final: prev: {
+        # While evalModules is being excuted, the default action when when Kernal Modules are unable to be found (Downloaded) is to fail.
+
+        makeModulesClosure = x:
+        prev.makeModulesClosure (x // { allowMissing = true; });
+      };
     in
     rec {
 
@@ -62,11 +69,10 @@
           nixpkgs.hostPlatform = "x86_64-linux";
         };
 
-        
-        builders = {config, ... }: {
-          overlays = import ./overlays {inherit inputs;};
-        };
         /*
+        builders = {config, ... }: {
+          #overlays = import ./overlays {inherit inputs;};
+        };
           nixpkgs.overlays = [
               (final: super: {
                 makeModulesClosure = x:
@@ -94,13 +100,14 @@
         estushlpse = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ builder ]; })
             # > Our main nixos configuration file <
             ./hosts/default.nix
             ./hosts/estushlpse/configuration.nix
             #vscode-server.nixosModules.default
             self.nixosModules.virtualization
             self.nixosModules.x86_64-linux
-            self.nixosModules.builders
+            # self.nixosModules.builders
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
