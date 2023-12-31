@@ -29,14 +29,7 @@
       username = "frame";
       homeDirectory = "/home/frame";
       packages = [
-        pkgs.tree
-        pkgs.psmisc
-        pkgs.wget2
-        pkgs.coreutils
-        pkgs.duplicati
-        pkgs.sops
-        pkgs.ssh-to-age
-        pkgs.ssh-to-pgp
+        pkgs.r-to-pgp
         pkgs.age
         pkgs.htop
         pkgs.quickemu

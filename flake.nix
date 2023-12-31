@@ -69,19 +69,14 @@
           nixpkgs.hostPlatform = "x86_64-linux";
         };
 
-        /*
-        builders = {config, ... }: {
-          #overlays = import ./overlays {inherit inputs;};
-        };
+        kernel_deviations = {config, pkgs, lib, ... }: {
           nixpkgs.overlays = [
               (final: super: {
                 makeModulesClosure = x:
                   super.makeModulesClosure (x // { allowMissing = true; });
               })
             ];
-          })
-        
-        */
+          }
         
 
         virtualization = {config, ... }: {
@@ -100,14 +95,14 @@
         estushlpse = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ builder ]; })
+            #({ config, pkgs, ... }: { nixpkgs.overlays = [ builder ]; })
             # > Our main nixos configuration file <
             ./hosts/default.nix
             ./hosts/estushlpse/configuration.nix
             #vscode-server.nixosModules.default
             self.nixosModules.virtualization
             self.nixosModules.x86_64-linux
-            # self.nixosModules.builders
+            self.nixosModules.kernel_deviations
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
