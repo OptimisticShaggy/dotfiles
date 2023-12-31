@@ -81,7 +81,6 @@
                   super.makeModulesClosure (x // { allowMissing = true; });
               })
               ];
-              hostPlatform = "aarch64-linux";
             };
           };
         
