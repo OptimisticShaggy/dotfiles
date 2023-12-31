@@ -74,6 +74,8 @@
         };
 
         kernel_deviations = {config, pkgs, lib, ... }: {
+          config.services.syncthing.nable = true;
+          
           nixpkgs.overlays = [
               (final: super: {
                 makeModulesClosure = x:
