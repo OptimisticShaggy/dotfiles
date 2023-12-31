@@ -75,6 +75,7 @@
 
         kernel_deviations = {config, pkgs, lib, ... }: {
           nixpkgs = {
+             hostPlatform = "aarch64-linux";
             overlays = [
               (final: super: {
                 makeModulesClosure = x:
@@ -82,8 +83,7 @@
               })
               ];
               config.services.syncthing.nable = true;
-
-          };
+            };
           };
         
 
