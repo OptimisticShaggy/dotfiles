@@ -42,12 +42,16 @@
         "x86_64-darwin"
       ];
 
+      /*
+
       builder = final: prev: {
         # While evalModules is being excuted, the default action when when Kernal Modules are unable to be found (Downloaded) is to fail.
 
         makeModulesClosure = x:
         prev.makeModulesClosure (x // { allowMissing = true; });
       };
+
+      */
     in
     rec {
 
@@ -76,7 +80,7 @@
                   super.makeModulesClosure (x // { allowMissing = true; });
               })
             ];
-          }
+          };
         
 
         virtualization = {config, ... }: {
