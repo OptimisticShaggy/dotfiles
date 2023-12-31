@@ -145,7 +145,7 @@
           ];
         };
       
-         portphpe = nixpkgs.lib.nixosSystem {
+        portphpe = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           
           modules = [
