@@ -15,10 +15,9 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    
-    ../../services/displays/workstation/sens_xfce.nix
     ./hardware-configuration.nix
     ../../services/datarecovery.nix
+    ../../services/displays/workstation/kde.nix
   ];
   
 
