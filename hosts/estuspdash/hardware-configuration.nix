@@ -11,7 +11,7 @@
   config = {
 
     boot = {
-      kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
+      boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
       initrd = {
         availableKernelModules = [ "usbhid" "usb_storage" ];
       };

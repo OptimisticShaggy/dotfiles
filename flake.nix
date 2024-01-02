@@ -74,17 +74,13 @@
         };
 
         kernel_deviations = {config, pkgs, lib, ... }: {
-          nixpkgs = {
-            overlays = [
-              (final: super: {
-                makeModulesClosure = x:
-                  super.makeModulesClosure (x // { allowMissing = true; });
-              })
-              ];
-            };
-          };
-        
-
+          nixpkgs.overlays = [
+            (final: super: {
+              makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
+            })
+          ];
+        };
+            
         virtualization = {config, ... }: {
             imports = [
                 ./services/virtualization/default.nix

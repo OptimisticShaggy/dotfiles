@@ -6,6 +6,7 @@
   imports = [
     ../../networking/default.nix
     ../../networking/tailscale.nix
+    ../../networking/nm.nix
     ../../networking/hidden_wifi_net.nix
     ../../networking/bluetooth.nix
   ];
